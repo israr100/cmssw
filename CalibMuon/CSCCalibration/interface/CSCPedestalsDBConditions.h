@@ -48,8 +48,8 @@ private:
 inline CSCDBPedestals *CSCPedestalsDBConditions::prefillDBPedestals() {
   const int PED_FACTOR = 10;
   const int RMS_FACTOR = 1000;
-  const int MAX_SIZE = 252288;
-  // const int MAX_SIZE = 273024; //for extra ME1a unganged case
+  //const int MAX_SIZE = 252288;
+  const int MAX_SIZE = 273024; //for extra ME1a unganged case
   const int MAX_SHORT = 32767;
   CSCDBPedestals *cndbpedestals = new CSCDBPedestals();
 
