@@ -41,8 +41,8 @@ private:
 
 // to workaround plugin library
 inline CSCDBCrosstalk *CSCCrosstalkDBConditions::prefillDBCrosstalk() {
-  // const int MAX_SIZE = 273024; //for ME1a unganged
-  const int MAX_SIZE = 252288;
+  const int MAX_SIZE = 273024; //for ME1a unganged
+  //const int MAX_SIZE = 252288;
   const int SLOPE_FACTOR = 10000000;
   const int INTERCEPT_FACTOR = 100000;
   const int MAX_SHORT = 32767;
