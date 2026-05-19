@@ -55,7 +55,6 @@ int main(){
           nIndexME42++;
       }
   }
-    
     avgGslopeME11 = sumGslopeME11/nIndexME11;
     avgGIntcME11  = sumGIntcME11/nIndexME11;
     avgGchi2ME11  = sumGchi2ME11/nIndexME11;

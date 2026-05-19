@@ -1,11 +1,14 @@
 void peds(){
   
-  TFile *fDiffPeds = TFile::Open("Results/run_10000015/Calibration_Sep_28_2022/diffPeds_Sep_28_2022.root");
+  TFile *fDiffPeds = TFile::Open("Calibration_Feb_08_2024/diffPeds_Feb_08_2024.root");
   TTree* DiffPeds = (TTree*)fDiffPeds->Get("DiffPeds");
-
+  TLegend* legend = new TLegend(0.7, 0.7, 0.9, 0.9);
+  
   // index vs diff pedestals
   TCanvas *c1 = new TCanvas("c1","",800,600);
+  
   DiffPeds->Draw("index:diffPeds");
+
   //  c1->SetLogy();
   c1->Update();
 
@@ -58,22 +61,22 @@ void peds(){
   pME12_line->SetLineColor(kRed);
   pME13_line->SetLineColor(kRed);
   pME11a_line->SetLineColor(kRed);
-  pME21_line->SetLineColor(kRed);
-  pME22_line->SetLineColor(kRed);
-  pME31_line->SetLineColor(kRed);
-  pME32_line->SetLineColor(kRed);
-  pME41_line->SetLineColor(kRed);
-  pME42_line->SetLineColor(kRed);
+  pME21_line->SetLineColor(kBlack);
+  pME22_line->SetLineColor(kBlack);
+  pME31_line->SetLineColor(kBlue);
+  pME32_line->SetLineColor(kBlue);
+  pME41_line->SetLineColor(kGreen);
+  pME42_line->SetLineColor(kGreen);
   mME11b_line->SetLineColor(kRed);
   mME12_line->SetLineColor(kRed);
   mME13_line->SetLineColor(kRed);
   mME11a_line->SetLineColor(kRed);
-  mME21_line->SetLineColor(kRed);
-  mME22_line->SetLineColor(kRed);
-  mME31_line->SetLineColor(kRed);
-  mME32_line->SetLineColor(kRed);
-  mME41_line->SetLineColor(kRed);
-  mME42_line->SetLineColor(kRed);
+  mME21_line->SetLineColor(kBlack);
+  mME22_line->SetLineColor(kBlack);
+  mME31_line->SetLineColor(kBlue);
+  mME32_line->SetLineColor(kBlue);
+  mME41_line->SetLineColor(kGreen);
+  mME42_line->SetLineColor(kGreen);
   end_line->SetLineColor(kRed);
 
   pME11b_line->SetLineWidth(1);
@@ -119,24 +122,41 @@ void peds(){
   mME41_line->Draw("SAME");
   mME42_line->Draw("SAME");
   end_line->Draw("SAME");
+  legend->AddEntry(mME11a_line,"ME1"); 
+  legend->AddEntry(mME21_line,"ME2");
+  legend->AddEntry(mME31_line,"ME3");
+  legend->AddEntry(mME41_line,"ME4");
+  legend->Draw("SAME");
+  //c1->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffPeds_rings.pdf");
 
-  //c1->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffPeds_rings.pdf");
-  c1->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffPeds_rings.png");
+  c1->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffPeds_rings.png");
   
   // diff pedestals
   TCanvas *c2  = new TCanvas("c2","",800,600);
   c2->SetLogy();
   DiffPeds->Draw("diffPeds");
 
-  //c2->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffPeds.pdf");
-  c2->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffPeds.png");
+  //c2->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffPeds.pdf");
+  c2->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffPeds.png");
 
 }
 
 void matrix(){
 
-  TFile *fDiffMatrix = TFile::Open("Results/run_10000015/Calibration_Sep_28_2022/diffMatrix_Sep_28_2022.root");
+  TFile *fDiffMatrix = TFile::Open("Calibration_Feb_08_2024/diffMatrix_Feb_08_2024.root");
   TTree* DiffMatrix = (TTree*)fDiffMatrix->Get("DiffMatrix");
+  TLegend* legend_1 = new TLegend(0.7, 0.7, 0.9, 0.9);
+  TLegend* legend_2 = new TLegend(0.7, 0.7, 0.9, 0.9);
+  TLegend* legend_3 = new TLegend(0.7, 0.7, 0.9, 0.9);
+  TLegend* legend_4 = new TLegend(0.7, 0.7, 0.9, 0.9);
+  TLegend* legend_5 = new TLegend(0.7, 0.7, 0.9, 0.9);
+  TLegend* legend_6 = new TLegend(0.7, 0.7, 0.9, 0.9);
+  TLegend* legend_7 = new TLegend(0.7, 0.7, 0.9, 0.9);
+  TLegend* legend_8 = new TLegend(0.7, 0.7, 0.9, 0.9);
+  TLegend* legend_9 = new TLegend(0.7, 0.7, 0.9, 0.9);
+  TLegend* legend_10 = new TLegend(0.7, 0.7, 0.9, 0.9);
+  TLegend* legend_11 = new TLegend(0.7, 0.7, 0.9, 0.9);
+  TLegend* legend_12 = new TLegend(0.7, 0.7, 0.9, 0.9);
 
   // index vs diff noise matrix
   TCanvas *c1 = new TCanvas("c1","",1000,1000);
@@ -207,22 +227,22 @@ void matrix(){
   pME12_line_1->SetLineColor(kRed);
   pME13_line_1->SetLineColor(kRed);
   pME11a_line_1->SetLineColor(kRed);
-  pME21_line_1->SetLineColor(kRed);
-  pME22_line_1->SetLineColor(kRed);
-  pME31_line_1->SetLineColor(kRed);
-  pME32_line_1->SetLineColor(kRed);
-  pME41_line_1->SetLineColor(kRed);
-  pME42_line_1->SetLineColor(kRed);
+  pME21_line_1->SetLineColor(kBlack);
+  pME22_line_1->SetLineColor(kBlack);
+  pME31_line_1->SetLineColor(kBlue);
+  pME32_line_1->SetLineColor(kBlue);
+  pME41_line_1->SetLineColor(kGreen);
+  pME42_line_1->SetLineColor(kGreen);
   mME11b_line_1->SetLineColor(kRed);
   mME12_line_1->SetLineColor(kRed);
   mME13_line_1->SetLineColor(kRed);
   mME11a_line_1->SetLineColor(kRed);
-  mME21_line_1->SetLineColor(kRed);
-  mME22_line_1->SetLineColor(kRed);
-  mME31_line_1->SetLineColor(kRed);
-  mME32_line_1->SetLineColor(kRed);
-  mME41_line_1->SetLineColor(kRed);
-  mME42_line_1->SetLineColor(kRed);
+  mME21_line_1->SetLineColor(kBlack);
+  mME22_line_1->SetLineColor(kBlack);
+  mME31_line_1->SetLineColor(kBlue);
+  mME32_line_1->SetLineColor(kBlue);
+  mME41_line_1->SetLineColor(kGreen);
+  mME42_line_1->SetLineColor(kGreen);
   end_line_1->SetLineColor(kRed);
 
   pME11b_line_1->SetLineWidth(1);
@@ -268,7 +288,11 @@ void matrix(){
   mME41_line_1->Draw("SAME");
   mME42_line_1->Draw("SAME");
   end_line_1->Draw("SAME");
-
+  legend_1->AddEntry(mME11a_line_1,"ME1"); 
+  legend_1->AddEntry(mME21_line_1,"ME2");
+  legend_1->AddEntry(mME31_line_1,"ME3");
+  legend_1->AddEntry(mME41_line_1,"ME4");
+  legend_1->Draw("SAME");
   c2->cd();
   DiffMatrix->Draw("index:diffElem34");
   c2->Update();
@@ -299,22 +323,22 @@ void matrix(){
   pME12_line_2->SetLineColor(kRed);
   pME13_line_2->SetLineColor(kRed);
   pME11a_line_2->SetLineColor(kRed);
-  pME21_line_2->SetLineColor(kRed);
-  pME22_line_2->SetLineColor(kRed);
-  pME31_line_2->SetLineColor(kRed);
-  pME32_line_2->SetLineColor(kRed);
-  pME41_line_2->SetLineColor(kRed);
-  pME42_line_2->SetLineColor(kRed);
+  pME21_line_2->SetLineColor(kBlack);
+  pME22_line_2->SetLineColor(kBlack);
+  pME31_line_2->SetLineColor(kBlue);
+  pME32_line_2->SetLineColor(kBlue);
+  pME41_line_2->SetLineColor(kGreen);
+  pME42_line_2->SetLineColor(kGreen);
   mME11b_line_2->SetLineColor(kRed);
   mME12_line_2->SetLineColor(kRed);
   mME13_line_2->SetLineColor(kRed);
   mME11a_line_2->SetLineColor(kRed);
-  mME21_line_2->SetLineColor(kRed);
-  mME22_line_2->SetLineColor(kRed);
-  mME31_line_2->SetLineColor(kRed);
-  mME32_line_2->SetLineColor(kRed);
-  mME41_line_2->SetLineColor(kRed);
-  mME42_line_2->SetLineColor(kRed);
+  mME21_line_2->SetLineColor(kBlack);
+  mME22_line_2->SetLineColor(kBlack);
+  mME31_line_2->SetLineColor(kBlue);
+  mME32_line_2->SetLineColor(kBlue);
+  mME41_line_2->SetLineColor(kGreen);
+  mME42_line_2->SetLineColor(kGreen);
   end_line_2->SetLineColor(kRed);
 
   pME11b_line_2->SetLineWidth(1);
@@ -360,6 +384,11 @@ void matrix(){
   mME41_line_2->Draw("SAME");
   mME42_line_2->Draw("SAME");
   end_line_2->Draw("SAME");
+  legend_2->AddEntry(mME11a_line_2,"ME1"); 
+  legend_2->AddEntry(mME21_line_2,"ME2");
+  legend_2->AddEntry(mME31_line_2,"ME3");
+  legend_2->AddEntry(mME41_line_2,"ME4");
+  legend_2->Draw("SAME");
 
   c3->cd();
   DiffMatrix->Draw("index:diffElem35");
@@ -391,22 +420,22 @@ void matrix(){
   pME12_line_3->SetLineColor(kRed);
   pME13_line_3->SetLineColor(kRed);
   pME11a_line_3->SetLineColor(kRed);
-  pME21_line_3->SetLineColor(kRed);
-  pME22_line_3->SetLineColor(kRed);
-  pME31_line_3->SetLineColor(kRed);
-  pME32_line_3->SetLineColor(kRed);
-  pME41_line_3->SetLineColor(kRed);
-  pME42_line_3->SetLineColor(kRed);
+  pME21_line_3->SetLineColor(kBlack);
+  pME22_line_3->SetLineColor(kBlack);
+  pME31_line_3->SetLineColor(kBlue);
+  pME32_line_3->SetLineColor(kBlue);
+  pME41_line_3->SetLineColor(kGreen);
+  pME42_line_3->SetLineColor(kGreen);
   mME11b_line_3->SetLineColor(kRed);
   mME12_line_3->SetLineColor(kRed);
   mME13_line_3->SetLineColor(kRed);
   mME11a_line_3->SetLineColor(kRed);
-  mME21_line_3->SetLineColor(kRed);
-  mME22_line_3->SetLineColor(kRed);
-  mME31_line_3->SetLineColor(kRed);
-  mME32_line_3->SetLineColor(kRed);
-  mME41_line_3->SetLineColor(kRed);
-  mME42_line_3->SetLineColor(kRed);
+  mME21_line_3->SetLineColor(kBlack);
+  mME22_line_3->SetLineColor(kBlack);
+  mME31_line_3->SetLineColor(kBlue);
+  mME32_line_3->SetLineColor(kBlue);
+  mME41_line_3->SetLineColor(kGreen);
+  mME42_line_3->SetLineColor(kGreen);
   end_line_3->SetLineColor(kRed);
 
   pME11b_line_3->SetLineWidth(1);
@@ -452,7 +481,11 @@ void matrix(){
   mME41_line_3->Draw("SAME");
   mME42_line_3->Draw("SAME");
   end_line_3->Draw("SAME");
-
+  legend_3->AddEntry(mME11a_line_3,"ME1"); 
+  legend_3->AddEntry(mME21_line_3,"ME2");
+  legend_3->AddEntry(mME31_line_3,"ME3");
+  legend_3->AddEntry(mME41_line_3,"ME4");
+  legend_3->Draw("SAME");
   c4->cd();
   DiffMatrix->Draw("index:diffElem44");
   c4->Update();
@@ -483,23 +516,24 @@ void matrix(){
   pME12_line_4->SetLineColor(kRed);
   pME13_line_4->SetLineColor(kRed);
   pME11a_line_4->SetLineColor(kRed);
-  pME21_line_4->SetLineColor(kRed);
-  pME22_line_4->SetLineColor(kRed);
-  pME31_line_4->SetLineColor(kRed);
-  pME32_line_4->SetLineColor(kRed);
-  pME41_line_4->SetLineColor(kRed);
-  pME42_line_4->SetLineColor(kRed);
+  pME21_line_4->SetLineColor(kBlack);
+  pME22_line_4->SetLineColor(kBlack);
+  pME31_line_4->SetLineColor(kBlue);
+  pME32_line_4->SetLineColor(kBlue);
+  pME41_line_4->SetLineColor(kGreen);
+  pME42_line_4->SetLineColor(kGreen);
   mME11b_line_4->SetLineColor(kRed);
   mME12_line_4->SetLineColor(kRed);
   mME13_line_4->SetLineColor(kRed);
   mME11a_line_4->SetLineColor(kRed);
-  mME21_line_4->SetLineColor(kRed);
-  mME22_line_4->SetLineColor(kRed);
-  mME31_line_4->SetLineColor(kRed);
-  mME32_line_4->SetLineColor(kRed);
-  mME41_line_4->SetLineColor(kRed);
-  mME42_line_4->SetLineColor(kRed);
+  mME21_line_4->SetLineColor(kBlack);
+  mME22_line_4->SetLineColor(kBlack);
+  mME31_line_4->SetLineColor(kBlue);
+  mME32_line_4->SetLineColor(kBlue);
+  mME41_line_4->SetLineColor(kGreen);
+  mME42_line_4->SetLineColor(kGreen);
   end_line_4->SetLineColor(kRed);
+
 
   pME11b_line_4->SetLineWidth(1);
   pME12_line_4->SetLineWidth(1);
@@ -544,7 +578,11 @@ void matrix(){
   mME41_line_4->Draw("SAME");
   mME42_line_4->Draw("SAME");
   end_line_4->Draw("SAME");
-
+  legend_4->AddEntry(mME11a_line_4,"ME1"); 
+  legend_4->AddEntry(mME21_line_4,"ME2");
+  legend_4->AddEntry(mME31_line_4,"ME3");
+  legend_4->AddEntry(mME41_line_4,"ME4");
+  legend_4->Draw("SAME");
   c5->cd();
   DiffMatrix->Draw("index:diffElem45");
   c5->Update();
@@ -575,22 +613,22 @@ void matrix(){
   pME12_line_5->SetLineColor(kRed);
   pME13_line_5->SetLineColor(kRed);
   pME11a_line_5->SetLineColor(kRed);
-  pME21_line_5->SetLineColor(kRed);
-  pME22_line_5->SetLineColor(kRed);
-  pME31_line_5->SetLineColor(kRed);
-  pME32_line_5->SetLineColor(kRed);
-  pME41_line_5->SetLineColor(kRed);
-  pME42_line_5->SetLineColor(kRed);
+  pME21_line_5->SetLineColor(kBlack);
+  pME22_line_5->SetLineColor(kBlack);
+  pME31_line_5->SetLineColor(kBlue);
+  pME32_line_5->SetLineColor(kBlue);
+  pME41_line_5->SetLineColor(kGreen);
+  pME42_line_5->SetLineColor(kGreen);
   mME11b_line_5->SetLineColor(kRed);
   mME12_line_5->SetLineColor(kRed);
   mME13_line_5->SetLineColor(kRed);
   mME11a_line_5->SetLineColor(kRed);
-  mME21_line_5->SetLineColor(kRed);
-  mME22_line_5->SetLineColor(kRed);
-  mME31_line_5->SetLineColor(kRed);
-  mME32_line_5->SetLineColor(kRed);
-  mME41_line_5->SetLineColor(kRed);
-  mME42_line_5->SetLineColor(kRed);
+  mME21_line_5->SetLineColor(kBlack);
+  mME22_line_5->SetLineColor(kBlack);
+  mME31_line_5->SetLineColor(kBlue);
+  mME32_line_5->SetLineColor(kBlue);
+  mME41_line_5->SetLineColor(kGreen);
+  mME42_line_5->SetLineColor(kGreen);
   end_line_5->SetLineColor(kRed);
 
   pME11b_line_5->SetLineWidth(1);
@@ -636,7 +674,11 @@ void matrix(){
   mME41_line_5->Draw("SAME");
   mME42_line_5->Draw("SAME");
   end_line_5->Draw("SAME");
-
+  legend_5->AddEntry(mME11a_line_5,"ME1"); 
+  legend_5->AddEntry(mME21_line_5,"ME2");
+  legend_5->AddEntry(mME31_line_5,"ME3");
+  legend_5->AddEntry(mME41_line_5,"ME4");
+  legend_5->Draw("SAME");
   c6->cd();
   DiffMatrix->Draw("index:diffElem46");
   c6->Update();
@@ -667,22 +709,22 @@ void matrix(){
   pME12_line_6->SetLineColor(kRed);
   pME13_line_6->SetLineColor(kRed);
   pME11a_line_6->SetLineColor(kRed);
-  pME21_line_6->SetLineColor(kRed);
-  pME22_line_6->SetLineColor(kRed);
-  pME31_line_6->SetLineColor(kRed);
-  pME32_line_6->SetLineColor(kRed);
-  pME41_line_6->SetLineColor(kRed);
-  pME42_line_6->SetLineColor(kRed);
+  pME21_line_6->SetLineColor(kBlack);
+  pME22_line_6->SetLineColor(kBlack);
+  pME31_line_6->SetLineColor(kBlue);
+  pME32_line_6->SetLineColor(kBlue);
+  pME41_line_6->SetLineColor(kGreen);
+  pME42_line_6->SetLineColor(kGreen);
   mME11b_line_6->SetLineColor(kRed);
   mME12_line_6->SetLineColor(kRed);
   mME13_line_6->SetLineColor(kRed);
   mME11a_line_6->SetLineColor(kRed);
-  mME21_line_6->SetLineColor(kRed);
-  mME22_line_6->SetLineColor(kRed);
-  mME31_line_6->SetLineColor(kRed);
-  mME32_line_6->SetLineColor(kRed);
-  mME41_line_6->SetLineColor(kRed);
-  mME42_line_6->SetLineColor(kRed);
+  mME21_line_6->SetLineColor(kBlack);
+  mME22_line_6->SetLineColor(kBlack);
+  mME31_line_6->SetLineColor(kBlue);
+  mME32_line_6->SetLineColor(kBlue);
+  mME41_line_6->SetLineColor(kGreen);
+  mME42_line_6->SetLineColor(kGreen);
   end_line_6->SetLineColor(kRed);
 
   pME11b_line_6->SetLineWidth(1);
@@ -728,6 +770,11 @@ void matrix(){
   mME41_line_6->Draw("SAME");
   mME42_line_6->Draw("SAME");
   end_line_6->Draw("SAME");
+  legend_6->AddEntry(mME11a_line_6,"ME1"); 
+  legend_6->AddEntry(mME21_line_6,"ME2");
+  legend_6->AddEntry(mME31_line_6,"ME3");
+  legend_6->AddEntry(mME41_line_6,"ME4");
+  legend_6->Draw("SAME");
 
   c7->cd();
   DiffMatrix->Draw("index:diffElem55");
@@ -759,23 +806,24 @@ void matrix(){
   pME12_line_7->SetLineColor(kRed);
   pME13_line_7->SetLineColor(kRed);
   pME11a_line_7->SetLineColor(kRed);
-  pME21_line_7->SetLineColor(kRed);
-  pME22_line_7->SetLineColor(kRed);
-  pME31_line_7->SetLineColor(kRed);
-  pME32_line_7->SetLineColor(kRed);
-  pME41_line_7->SetLineColor(kRed);
-  pME42_line_7->SetLineColor(kRed);
+  pME21_line_7->SetLineColor(kBlack);
+  pME22_line_7->SetLineColor(kBlack);
+  pME31_line_7->SetLineColor(kBlue);
+  pME32_line_7->SetLineColor(kBlue);
+  pME41_line_7->SetLineColor(kGreen);
+  pME42_line_7->SetLineColor(kGreen);
   mME11b_line_7->SetLineColor(kRed);
   mME12_line_7->SetLineColor(kRed);
   mME13_line_7->SetLineColor(kRed);
   mME11a_line_7->SetLineColor(kRed);
-  mME21_line_7->SetLineColor(kRed);
-  mME22_line_7->SetLineColor(kRed);
-  mME31_line_7->SetLineColor(kRed);
-  mME32_line_7->SetLineColor(kRed);
-  mME41_line_7->SetLineColor(kRed);
-  mME42_line_7->SetLineColor(kRed);
+  mME21_line_7->SetLineColor(kBlack);
+  mME22_line_7->SetLineColor(kBlack);
+  mME31_line_7->SetLineColor(kBlue);
+  mME32_line_7->SetLineColor(kBlue);
+  mME41_line_7->SetLineColor(kGreen);
+  mME42_line_7->SetLineColor(kGreen);
   end_line_7->SetLineColor(kRed);
+
 
   pME11b_line_7->SetLineWidth(1);
   pME12_line_7->SetLineWidth(1);
@@ -820,7 +868,11 @@ void matrix(){
   mME41_line_7->Draw("SAME");
   mME42_line_7->Draw("SAME");
   end_line_7->Draw("SAME");
-
+  legend_7->AddEntry(mME11a_line_7,"ME1"); 
+  legend_7->AddEntry(mME21_line_7,"ME2");
+  legend_7->AddEntry(mME31_line_7,"ME3");
+  legend_7->AddEntry(mME41_line_7,"ME4");
+  legend_7->Draw("SAME");
   c8->cd();
   DiffMatrix->Draw("index:diffElem56");
   c8->Update();
@@ -851,23 +903,24 @@ void matrix(){
   pME12_line_8->SetLineColor(kRed);
   pME13_line_8->SetLineColor(kRed);
   pME11a_line_8->SetLineColor(kRed);
-  pME21_line_8->SetLineColor(kRed);
-  pME22_line_8->SetLineColor(kRed);
-  pME31_line_8->SetLineColor(kRed);
-  pME32_line_8->SetLineColor(kRed);
-  pME41_line_8->SetLineColor(kRed);
-  pME42_line_8->SetLineColor(kRed);
+  pME21_line_8->SetLineColor(kBlack);
+  pME22_line_8->SetLineColor(kBlack);
+  pME31_line_8->SetLineColor(kBlue);
+  pME32_line_8->SetLineColor(kBlue);
+  pME41_line_8->SetLineColor(kGreen);
+  pME42_line_8->SetLineColor(kGreen);
   mME11b_line_8->SetLineColor(kRed);
   mME12_line_8->SetLineColor(kRed);
   mME13_line_8->SetLineColor(kRed);
   mME11a_line_8->SetLineColor(kRed);
-  mME21_line_8->SetLineColor(kRed);
-  mME22_line_8->SetLineColor(kRed);
-  mME31_line_8->SetLineColor(kRed);
-  mME32_line_8->SetLineColor(kRed);
-  mME41_line_8->SetLineColor(kRed);
-  mME42_line_8->SetLineColor(kRed);
+  mME21_line_8->SetLineColor(kBlack);
+  mME22_line_8->SetLineColor(kBlack);
+  mME31_line_8->SetLineColor(kBlue);
+  mME32_line_8->SetLineColor(kBlue);
+  mME41_line_8->SetLineColor(kGreen);
+  mME42_line_8->SetLineColor(kGreen);
   end_line_8->SetLineColor(kRed);
+
 
   pME11b_line_8->SetLineWidth(1);
   pME12_line_8->SetLineWidth(1);
@@ -912,6 +965,11 @@ void matrix(){
   mME41_line_8->Draw("SAME");
   mME42_line_8->Draw("SAME");
   end_line_8->Draw("SAME");
+  legend_8->AddEntry(mME11a_line_8,"ME1"); 
+  legend_8->AddEntry(mME21_line_8,"ME2");
+  legend_8->AddEntry(mME31_line_8,"ME3");
+  legend_8->AddEntry(mME41_line_8,"ME4");
+  legend_8->Draw("SAME");
 
   c9->cd();
   DiffMatrix->Draw("index:diffElem57");
@@ -943,23 +1001,24 @@ void matrix(){
   pME12_line_9->SetLineColor(kRed);
   pME13_line_9->SetLineColor(kRed);
   pME11a_line_9->SetLineColor(kRed);
-  pME21_line_9->SetLineColor(kRed);
-  pME22_line_9->SetLineColor(kRed);
-  pME31_line_9->SetLineColor(kRed);
-  pME32_line_9->SetLineColor(kRed);
-  pME41_line_9->SetLineColor(kRed);
-  pME42_line_9->SetLineColor(kRed);
+  pME21_line_9->SetLineColor(kBlack);
+  pME22_line_9->SetLineColor(kBlack);
+  pME31_line_9->SetLineColor(kBlue);
+  pME32_line_9->SetLineColor(kBlue);
+  pME41_line_9->SetLineColor(kGreen);
+  pME42_line_9->SetLineColor(kGreen);
   mME11b_line_9->SetLineColor(kRed);
   mME12_line_9->SetLineColor(kRed);
   mME13_line_9->SetLineColor(kRed);
   mME11a_line_9->SetLineColor(kRed);
-  mME21_line_9->SetLineColor(kRed);
-  mME22_line_9->SetLineColor(kRed);
-  mME31_line_9->SetLineColor(kRed);
-  mME32_line_9->SetLineColor(kRed);
-  mME41_line_9->SetLineColor(kRed);
-  mME42_line_9->SetLineColor(kRed);
+  mME21_line_9->SetLineColor(kBlack);
+  mME22_line_9->SetLineColor(kBlack);
+  mME31_line_9->SetLineColor(kBlue);
+  mME32_line_9->SetLineColor(kBlue);
+  mME41_line_9->SetLineColor(kGreen);
+  mME42_line_9->SetLineColor(kGreen);
   end_line_9->SetLineColor(kRed);
+
 
   pME11b_line_9->SetLineWidth(1);
   pME12_line_9->SetLineWidth(1);
@@ -1004,6 +1063,11 @@ void matrix(){
   mME41_line_9->Draw("SAME");
   mME42_line_9->Draw("SAME");
   end_line_9->Draw("SAME");
+  legend_9->AddEntry(mME11a_line_9,"ME1"); 
+  legend_9->AddEntry(mME21_line_9,"ME2");
+  legend_9->AddEntry(mME31_line_9,"ME3");
+  legend_9->AddEntry(mME41_line_9,"ME4");
+  legend_9->Draw("SAME");
 
   c10->cd();
   DiffMatrix->Draw("index:diffElem66");
@@ -1035,23 +1099,24 @@ void matrix(){
   pME12_line_10->SetLineColor(kRed);
   pME13_line_10->SetLineColor(kRed);
   pME11a_line_10->SetLineColor(kRed);
-  pME21_line_10->SetLineColor(kRed);
-  pME22_line_10->SetLineColor(kRed);
-  pME31_line_10->SetLineColor(kRed);
-  pME32_line_10->SetLineColor(kRed);
-  pME41_line_10->SetLineColor(kRed);
-  pME42_line_10->SetLineColor(kRed);
+  pME21_line_10->SetLineColor(kBlack);
+  pME22_line_10->SetLineColor(kBlack);
+  pME31_line_10->SetLineColor(kBlue);
+  pME32_line_10->SetLineColor(kBlue);
+  pME41_line_10->SetLineColor(kGreen);
+  pME42_line_10->SetLineColor(kGreen);
   mME11b_line_10->SetLineColor(kRed);
   mME12_line_10->SetLineColor(kRed);
   mME13_line_10->SetLineColor(kRed);
   mME11a_line_10->SetLineColor(kRed);
-  mME21_line_10->SetLineColor(kRed);
-  mME22_line_10->SetLineColor(kRed);
-  mME31_line_10->SetLineColor(kRed);
-  mME32_line_10->SetLineColor(kRed);
-  mME41_line_10->SetLineColor(kRed);
-  mME42_line_10->SetLineColor(kRed);
+  mME21_line_10->SetLineColor(kBlack);
+  mME22_line_10->SetLineColor(kBlack);
+  mME31_line_10->SetLineColor(kBlue);
+  mME32_line_10->SetLineColor(kBlue);
+  mME41_line_10->SetLineColor(kGreen);
+  mME42_line_10->SetLineColor(kGreen);
   end_line_10->SetLineColor(kRed);
+
 
   pME11b_line_10->SetLineWidth(1);
   pME12_line_10->SetLineWidth(1);
@@ -1096,6 +1161,11 @@ void matrix(){
   mME41_line_10->Draw("SAME");
   mME42_line_10->Draw("SAME");
   end_line_10->Draw("SAME");
+  legend_10->AddEntry(mME11a_line_10,"ME1"); 
+  legend_10->AddEntry(mME21_line_10,"ME2");
+  legend_10->AddEntry(mME31_line_10,"ME3");
+  legend_10->AddEntry(mME41_line_10,"ME4");
+  legend_10->Draw("SAME");
 
   c11->cd();
   DiffMatrix->Draw("index:diffElem67");
@@ -1127,23 +1197,24 @@ void matrix(){
   pME12_line_11->SetLineColor(kRed);
   pME13_line_11->SetLineColor(kRed);
   pME11a_line_11->SetLineColor(kRed);
-  pME21_line_11->SetLineColor(kRed);
-  pME22_line_11->SetLineColor(kRed);
-  pME31_line_11->SetLineColor(kRed);
-  pME32_line_11->SetLineColor(kRed);
-  pME41_line_11->SetLineColor(kRed);
-  pME42_line_11->SetLineColor(kRed);
+  pME21_line_11->SetLineColor(kBlack);
+  pME22_line_11->SetLineColor(kBlack);
+  pME31_line_11->SetLineColor(kBlue);
+  pME32_line_11->SetLineColor(kBlue);
+  pME41_line_11->SetLineColor(kGreen);
+  pME42_line_11->SetLineColor(kGreen);
   mME11b_line_11->SetLineColor(kRed);
   mME12_line_11->SetLineColor(kRed);
   mME13_line_11->SetLineColor(kRed);
   mME11a_line_11->SetLineColor(kRed);
-  mME21_line_11->SetLineColor(kRed);
-  mME22_line_11->SetLineColor(kRed);
-  mME31_line_11->SetLineColor(kRed);
-  mME32_line_11->SetLineColor(kRed);
-  mME41_line_11->SetLineColor(kRed);
-  mME42_line_11->SetLineColor(kRed);
+  mME21_line_11->SetLineColor(kBlack);
+  mME22_line_11->SetLineColor(kBlack);
+  mME31_line_11->SetLineColor(kBlue);
+  mME32_line_11->SetLineColor(kBlue);
+  mME41_line_11->SetLineColor(kGreen);
+  mME42_line_11->SetLineColor(kGreen);
   end_line_11->SetLineColor(kRed);
+
 
   pME11b_line_11->SetLineWidth(1);
   pME12_line_11->SetLineWidth(1);
@@ -1188,6 +1259,11 @@ void matrix(){
   mME41_line_11->Draw("SAME");
   mME42_line_11->Draw("SAME");
   end_line_11->Draw("SAME");
+  legend_11->AddEntry(mME11a_line_11,"ME1"); 
+  legend_11->AddEntry(mME21_line_11,"ME2");
+  legend_11->AddEntry(mME31_line_11,"ME3");
+  legend_11->AddEntry(mME41_line_11,"ME4");
+  legend_11->Draw("SAME");
 
   c12->cd();
   DiffMatrix->Draw("index:diffElem77");
@@ -1219,22 +1295,22 @@ void matrix(){
   pME12_line_12->SetLineColor(kRed);
   pME13_line_12->SetLineColor(kRed);
   pME11a_line_12->SetLineColor(kRed);
-  pME21_line_12->SetLineColor(kRed);
-  pME22_line_12->SetLineColor(kRed);
-  pME31_line_12->SetLineColor(kRed);
-  pME32_line_12->SetLineColor(kRed);
-  pME41_line_12->SetLineColor(kRed);
-  pME42_line_12->SetLineColor(kRed);
+  pME21_line_12->SetLineColor(kBlack);
+  pME22_line_12->SetLineColor(kBlack);
+  pME31_line_12->SetLineColor(kBlue);
+  pME32_line_12->SetLineColor(kBlue);
+  pME41_line_12->SetLineColor(kGreen);
+  pME42_line_12->SetLineColor(kGreen);
   mME11b_line_12->SetLineColor(kRed);
   mME12_line_12->SetLineColor(kRed);
   mME13_line_12->SetLineColor(kRed);
   mME11a_line_12->SetLineColor(kRed);
-  mME21_line_12->SetLineColor(kRed);
-  mME22_line_12->SetLineColor(kRed);
-  mME31_line_12->SetLineColor(kRed);
-  mME32_line_12->SetLineColor(kRed);
-  mME41_line_12->SetLineColor(kRed);
-  mME42_line_12->SetLineColor(kRed);
+  mME21_line_12->SetLineColor(kBlack);
+  mME22_line_12->SetLineColor(kBlack);
+  mME31_line_12->SetLineColor(kBlue);
+  mME32_line_12->SetLineColor(kBlue);
+  mME41_line_12->SetLineColor(kGreen);
+  mME42_line_12->SetLineColor(kGreen);
   end_line_12->SetLineColor(kRed);
 
   pME11b_line_12->SetLineWidth(1);
@@ -1280,42 +1356,47 @@ void matrix(){
   mME41_line_12->Draw("SAME");
   mME42_line_12->Draw("SAME");
   end_line_12->Draw("SAME");
+  legend_12->AddEntry(mME11a_line_12,"ME1"); 
+  legend_12->AddEntry(mME21_line_12,"ME2");
+  legend_12->AddEntry(mME31_line_12,"ME3");
+  legend_12->AddEntry(mME41_line_12,"ME4");
+  legend_12->Draw("SAME");
 
-  ////c1->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem33_rings.pdf");
-  c1->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem33_rings.png");
+  ////c1->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem33_rings.pdf");
+  c1->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem33_rings.png");
 
-  ////c2->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem34_rings.pdf");
-  c2->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem34_rings.png");
+  ////c2->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem34_rings.pdf");
+  c2->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem34_rings.png");
 
-  ////c3->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem35_rings.pdf");
-  c3->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem35_rings.png");
+  ////c3->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem35_rings.pdf");
+  c3->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem35_rings.png");
 
-  ////c4->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem44_rings.pdf");
-  c4->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem44_rings.png");
+  ////c4->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem44_rings.pdf");
+  c4->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem44_rings.png");
 
-  ////c5->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem45_rings.pdf");
-  c5->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem45_rings.png");
+  ////c5->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem45_rings.pdf");
+  c5->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem45_rings.png");
 
-  ////c6->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem46_rings.pdf");
-  c6->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem46_rings.png");
+  ////c6->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem46_rings.pdf");
+  c6->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem46_rings.png");
 
-  ////c7->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem55_rings.pdf");
-  c7->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem55_rings.png");
+  ////c7->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem55_rings.pdf");
+  c7->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem55_rings.png");
 
-  ////c8->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem56_rings.pdf");
-  c8->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem56_rings.png");
+  ////c8->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem56_rings.pdf");
+  c8->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem56_rings.png");
 
-  ////c9->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem57_rings.pdf");
-  c9->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem57_rings.png");
+  ////c9->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem57_rings.pdf");
+  c9->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem57_rings.png");
 
-  ////c10->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem66_rings.pdf");
-  c10->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem66_rings.png");
+  ////c10->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem66_rings.pdf");
+  c10->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem66_rings.png");
 
-  ////c11->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem67_rings.pdf");
-  c11->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem67_rings.png");
+  ////c11->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem67_rings.pdf");
+  c11->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem67_rings.png");
 
-  ////c12->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem77_rings.pdf");
-  c12->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffMatrix_Elem77_rings.png");
+  ////c12->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem77_rings.pdf");
+  c12->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffMatrix_Elem77_rings.png");
 
   
   // diff noise matrix
@@ -1375,49 +1456,49 @@ void matrix(){
   c24->cd();
   DiffMatrix->Draw("diffElem77");
 
-  //c13->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem33.pdf");
-  c13->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem33.png");
+  //c13->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem33.pdf");
+  c13->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem33.png");
 
-  //c14->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem34.pdf");
-  c14->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem34.png");
+  //c14->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem34.pdf");
+  c14->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem34.png");
 
-  //c15->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem35.pdf");
-  c15->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem35.png");
+  //c15->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem35.pdf");
+  c15->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem35.png");
 
-  //c16->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem44.pdf");
-  c16->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem44.png");
+  //c16->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem44.pdf");
+  c16->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem44.png");
 
-  //c17->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem45.pdf");
-  c17->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem45.png");
+  //c17->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem45.pdf");
+  c17->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem45.png");
 
-  //c18->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem77.pdf");
-  c18->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem77.png");
+  //c18->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem77.pdf");
+  c18->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem77.png");
 
-  //c19->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem46.pdf");
-  c19->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem46.png");
+  //c19->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem46.pdf");
+  c19->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem46.png");
 
-  //c20->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem55.pdf");
-  c20->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem55.png");
+  //c20->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem55.pdf");
+  c20->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem55.png");
 
-  //c21->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem56.pdf");
-  c21->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem56.png");
+  //c21->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem56.pdf");
+  c21->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem56.png");
 
-  //c22->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem57.pdf");
-  c22->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem57.png");
+  //c22->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem57.pdf");
+  c22->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem57.png");
 
-  //c23->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem66.pdf");
-  c23->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem66.png");
+  //c23->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem66.pdf");
+  c23->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem66.png");
 
-  //c24->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem67.pdf");
-  c24->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffMatrix_Elem67.png");
+  //c24->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem67.pdf");
+  c24->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffMatrix_Elem67.png");
 
 }
 
 void gains(){
 
-  TFile *fDiffGains = TFile::Open("Results/run_10000015/Calibration_Sep_28_2022/diffGains_Sep_28_2022.root");
+  TFile *fDiffGains = TFile::Open("Calibration_Feb_08_2024/diffGains_Feb_08_2024.root");
   TTree* DiffGains = (TTree*)fDiffGains->Get("DiffGains");
-
+  TLegend* legend_2 = new TLegend(0.7, 0.7, 0.9, 0.9);
   // index vs diff gains
   TCanvas *c1 = new TCanvas("c1","",800,600);
   DiffGains->Draw("index:diffGains>>H");
@@ -1473,22 +1554,22 @@ void gains(){
   pME12_line->SetLineColor(kRed);
   pME13_line->SetLineColor(kRed);
   pME11a_line->SetLineColor(kRed);
-  pME21_line->SetLineColor(kRed);
-  pME22_line->SetLineColor(kRed);
-  pME31_line->SetLineColor(kRed);
-  pME32_line->SetLineColor(kRed);
-  pME41_line->SetLineColor(kRed);
-  pME42_line->SetLineColor(kRed);
+  pME21_line->SetLineColor(kBlack);
+  pME22_line->SetLineColor(kBlack);
+  pME31_line->SetLineColor(kBlue);
+  pME32_line->SetLineColor(kBlue);
+  pME41_line->SetLineColor(kGreen);
+  pME42_line->SetLineColor(kGreen);
   mME11b_line->SetLineColor(kRed);
   mME12_line->SetLineColor(kRed);
   mME13_line->SetLineColor(kRed);
   mME11a_line->SetLineColor(kRed);
-  mME21_line->SetLineColor(kRed);
-  mME22_line->SetLineColor(kRed);
-  mME31_line->SetLineColor(kRed);
-  mME32_line->SetLineColor(kRed);
-  mME41_line->SetLineColor(kRed);
-  mME42_line->SetLineColor(kRed);
+  mME21_line->SetLineColor(kBlack);
+  mME22_line->SetLineColor(kBlack);
+  mME31_line->SetLineColor(kBlue);
+  mME32_line->SetLineColor(kBlue);
+  mME41_line->SetLineColor(kGreen);
+  mME42_line->SetLineColor(kGreen);
   end_line->SetLineColor(kRed);
 
   pME11b_line->SetLineWidth(1);
@@ -1534,25 +1615,33 @@ void gains(){
   mME41_line->Draw("SAME");
   mME42_line->Draw("SAME");
   end_line->Draw("SAME");
+  legend_2->AddEntry(mME11a_line,"ME1"); 
+  legend_2->AddEntry(mME21_line,"ME2");
+  legend_2->AddEntry(mME31_line,"ME3");
+  legend_2->AddEntry(mME41_line,"ME4");
+  legend_2->Draw("SAME");
 
-  //c1->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffGains_rings.pdf");
-  c1->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffGains_rings.png");
+  //c1->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffGains_rings.pdf");
+  c1->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffGains_rings.png");
   
   // diff gains
   TCanvas *c2  = new TCanvas("c2","",800,600);
   c2->SetLogy();
   DiffGains->Draw("diffGains");
 
-  //c2->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffGains_.pdf");
-  c2->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffGains_.png");
+  //c2->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffGains_.pdf");
+  c2->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffGains_.png");
 
 }
 
 void xtalk() {
 
-  TFile *fDiffXtalk = TFile::Open("Results/run_10000015/Calibration_Sep_28_2022/diffXtalk_Sep_28_2022.root");
+  TFile *fDiffXtalk = TFile::Open("Calibration_Feb_08_2024/diffXtalk_Feb_08_2024.root");
   TTree* DiffXtalk = (TTree*)fDiffXtalk->Get("DiffXtalk");
-
+  TLegend* legend_1 = new TLegend(0.7, 0.7, 0.9, 0.9);
+  TLegend* legend_2 = new TLegend(0.7, 0.7, 0.9, 0.9);
+  TLegend* legend_3 = new TLegend(0.7, 0.7, 0.9, 0.9);
+  TLegend* legend_4 = new TLegend(0.7, 0.7, 0.9, 0.9);
   // index vs diff crosstalk
   TCanvas *c1 = new TCanvas("c1","",1000,1000);
   TCanvas *c2 = new TCanvas("c2","",1000,1000);
@@ -1585,8 +1674,6 @@ void xtalk() {
 
   c1->cd();
   DiffXtalk->Draw("index:diffIntL");
-  auto htemp1 = (TH2F*)gPad->GetPrimitive("htemp");
-  htemp1->GetXaxis()->SetLimits(-2.0,2.0);
   c1->Update();
 
   TLine *pME11b_line_1 = new TLine(c1->GetUxmin(), pME11b, c1->GetUxmax(), pME11b);
@@ -1615,22 +1702,22 @@ void xtalk() {
   pME12_line_1->SetLineColor(kRed);
   pME13_line_1->SetLineColor(kRed);
   pME11a_line_1->SetLineColor(kRed);
-  pME21_line_1->SetLineColor(kRed);
-  pME22_line_1->SetLineColor(kRed);
-  pME31_line_1->SetLineColor(kRed);
-  pME32_line_1->SetLineColor(kRed);
-  pME41_line_1->SetLineColor(kRed);
-  pME42_line_1->SetLineColor(kRed);
+  pME21_line_1->SetLineColor(kBlack);
+  pME22_line_1->SetLineColor(kBlack);
+  pME31_line_1->SetLineColor(kBlue);
+  pME32_line_1->SetLineColor(kBlue);
+  pME41_line_1->SetLineColor(kGreen);
+  pME42_line_1->SetLineColor(kGreen);
   mME11b_line_1->SetLineColor(kRed);
   mME12_line_1->SetLineColor(kRed);
   mME13_line_1->SetLineColor(kRed);
   mME11a_line_1->SetLineColor(kRed);
-  mME21_line_1->SetLineColor(kRed);
-  mME22_line_1->SetLineColor(kRed);
-  mME31_line_1->SetLineColor(kRed);
-  mME32_line_1->SetLineColor(kRed);
-  mME41_line_1->SetLineColor(kRed);
-  mME42_line_1->SetLineColor(kRed);
+  mME21_line_1->SetLineColor(kBlack);
+  mME22_line_1->SetLineColor(kBlack);
+  mME31_line_1->SetLineColor(kBlue);
+  mME32_line_1->SetLineColor(kBlue);
+  mME41_line_1->SetLineColor(kGreen);
+  mME42_line_1->SetLineColor(kGreen);
   end_line_1->SetLineColor(kRed);
 
   pME11b_line_1->SetLineWidth(1);
@@ -1676,11 +1763,15 @@ void xtalk() {
   mME41_line_1->Draw("SAME");
   mME42_line_1->Draw("SAME");
   end_line_1->Draw("SAME");
+  legend_1->AddEntry(mME11a_line_1,"ME1"); 
+  legend_1->AddEntry(mME21_line_1,"ME2");
+  legend_1->AddEntry(mME31_line_1,"ME3");
+  legend_1->AddEntry(mME41_line_1,"ME4");
+  legend_1->Draw("SAME");
 
   c2->cd();
   DiffXtalk->Draw("index:diffIntR");
-  auto htemp2 = (TH2F*)gPad->GetPrimitive("htemp");
-  htemp2->GetXaxis()->SetLimits(-2.0,2.0);
+  
   c2->Update();
 
   TLine *pME11b_line_2 = new TLine(c2->GetUxmin(), pME11b, c2->GetUxmax(), pME11b);
@@ -1709,22 +1800,22 @@ void xtalk() {
   pME12_line_2->SetLineColor(kRed);
   pME13_line_2->SetLineColor(kRed);
   pME11a_line_2->SetLineColor(kRed);
-  pME21_line_2->SetLineColor(kRed);
-  pME22_line_2->SetLineColor(kRed);
-  pME31_line_2->SetLineColor(kRed);
-  pME32_line_2->SetLineColor(kRed);
-  pME41_line_2->SetLineColor(kRed);
-  pME42_line_2->SetLineColor(kRed);
+  pME21_line_2->SetLineColor(kBlack);
+  pME22_line_2->SetLineColor(kBlack);
+  pME31_line_2->SetLineColor(kBlue);
+  pME32_line_2->SetLineColor(kBlue);
+  pME41_line_2->SetLineColor(kGreen);
+  pME42_line_2->SetLineColor(kGreen);
   mME11b_line_2->SetLineColor(kRed);
   mME12_line_2->SetLineColor(kRed);
   mME13_line_2->SetLineColor(kRed);
   mME11a_line_2->SetLineColor(kRed);
-  mME21_line_2->SetLineColor(kRed);
-  mME22_line_2->SetLineColor(kRed);
-  mME31_line_2->SetLineColor(kRed);
-  mME32_line_2->SetLineColor(kRed);
-  mME41_line_2->SetLineColor(kRed);
-  mME42_line_2->SetLineColor(kRed);
+  mME21_line_2->SetLineColor(kBlack);
+  mME22_line_2->SetLineColor(kBlack);
+  mME31_line_2->SetLineColor(kBlue);
+  mME32_line_2->SetLineColor(kBlue);
+  mME41_line_2->SetLineColor(kGreen);
+  mME42_line_2->SetLineColor(kGreen);
   end_line_2->SetLineColor(kRed);
 
   pME11b_line_2->SetLineWidth(1);
@@ -1770,11 +1861,14 @@ void xtalk() {
   mME41_line_2->Draw("SAME");
   mME42_line_2->Draw("SAME");
   end_line_2->Draw("SAME");
+  legend_2->AddEntry(mME11a_line_2,"ME1"); 
+  legend_2->AddEntry(mME21_line_2,"ME2");
+  legend_2->AddEntry(mME31_line_2,"ME3");
+  legend_2->AddEntry(mME41_line_2,"ME4");
+  legend_2->Draw("SAME");
 
   c3->cd();
   DiffXtalk->Draw("index:diffXtalkL");
-  auto htemp3 = (TH2F*)gPad->GetPrimitive("htemp");
-  htemp3->GetXaxis()->SetLimits(-2.0,2.0);
   c3->Update();
 
   TLine *pME11b_line_3 = new TLine(c3->GetUxmin(), pME11b, c3->GetUxmax(), pME11b);
@@ -1803,22 +1897,22 @@ void xtalk() {
   pME12_line_3->SetLineColor(kRed);
   pME13_line_3->SetLineColor(kRed);
   pME11a_line_3->SetLineColor(kRed);
-  pME21_line_3->SetLineColor(kRed);
-  pME22_line_3->SetLineColor(kRed);
-  pME31_line_3->SetLineColor(kRed);
-  pME32_line_3->SetLineColor(kRed);
-  pME41_line_3->SetLineColor(kRed);
-  pME42_line_3->SetLineColor(kRed);
+  pME21_line_3->SetLineColor(kBlack);
+  pME22_line_3->SetLineColor(kBlack);
+  pME31_line_3->SetLineColor(kBlue);
+  pME32_line_3->SetLineColor(kBlue);
+  pME41_line_3->SetLineColor(kGreen);
+  pME42_line_3->SetLineColor(kGreen);
   mME11b_line_3->SetLineColor(kRed);
   mME12_line_3->SetLineColor(kRed);
   mME13_line_3->SetLineColor(kRed);
   mME11a_line_3->SetLineColor(kRed);
-  mME21_line_3->SetLineColor(kRed);
-  mME22_line_3->SetLineColor(kRed);
-  mME31_line_3->SetLineColor(kRed);
-  mME32_line_3->SetLineColor(kRed);
-  mME41_line_3->SetLineColor(kRed);
-  mME42_line_3->SetLineColor(kRed);
+  mME21_line_3->SetLineColor(kBlack);
+  mME22_line_3->SetLineColor(kBlack);
+  mME31_line_3->SetLineColor(kBlue);
+  mME32_line_3->SetLineColor(kBlue);
+  mME41_line_3->SetLineColor(kGreen);
+  mME42_line_3->SetLineColor(kGreen);
   end_line_3->SetLineColor(kRed);
 
   pME11b_line_3->SetLineWidth(1);
@@ -1864,11 +1958,14 @@ void xtalk() {
   mME41_line_3->Draw("SAME");
   mME42_line_3->Draw("SAME");
   end_line_3->Draw("SAME");
+  legend_3->AddEntry(mME11a_line_3,"ME1"); 
+  legend_3->AddEntry(mME21_line_3,"ME2");
+  legend_3->AddEntry(mME31_line_3,"ME3");
+  legend_3->AddEntry(mME41_line_3,"ME4");
+  legend_3->Draw("SAME");
 
   c4->cd();
   DiffXtalk->Draw("index:diffXtalkR");
-  auto htemp4 = (TH2F*)gPad->GetPrimitive("htemp");
-  htemp4->GetXaxis()->SetLimits(-2.0,2.0);
   c4->Update();
 
   TLine *pME11b_line_4 = new TLine(c4->GetUxmin(), pME11b, c4->GetUxmax(), pME11b);
@@ -1897,23 +1994,24 @@ void xtalk() {
   pME12_line_4->SetLineColor(kRed);
   pME13_line_4->SetLineColor(kRed);
   pME11a_line_4->SetLineColor(kRed);
-  pME21_line_4->SetLineColor(kRed);
-  pME22_line_4->SetLineColor(kRed);
-  pME31_line_4->SetLineColor(kRed);
-  pME32_line_4->SetLineColor(kRed);
-  pME41_line_4->SetLineColor(kRed);
-  pME42_line_4->SetLineColor(kRed);
+  pME21_line_4->SetLineColor(kBlack);
+  pME22_line_4->SetLineColor(kBlack);
+  pME31_line_4->SetLineColor(kBlue);
+  pME32_line_4->SetLineColor(kBlue);
+  pME41_line_4->SetLineColor(kGreen);
+  pME42_line_4->SetLineColor(kGreen);
   mME11b_line_4->SetLineColor(kRed);
   mME12_line_4->SetLineColor(kRed);
   mME13_line_4->SetLineColor(kRed);
   mME11a_line_4->SetLineColor(kRed);
-  mME21_line_4->SetLineColor(kRed);
-  mME22_line_4->SetLineColor(kRed);
-  mME31_line_4->SetLineColor(kRed);
-  mME32_line_4->SetLineColor(kRed);
-  mME41_line_4->SetLineColor(kRed);
-  mME42_line_4->SetLineColor(kRed);
+  mME21_line_4->SetLineColor(kBlack);
+  mME22_line_4->SetLineColor(kBlack);
+  mME31_line_4->SetLineColor(kBlue);
+  mME32_line_4->SetLineColor(kBlue);
+  mME41_line_4->SetLineColor(kGreen);
+  mME42_line_4->SetLineColor(kGreen);
   end_line_4->SetLineColor(kRed);
+
 
   pME11b_line_4->SetLineWidth(1);
   pME12_line_4->SetLineWidth(1);
@@ -1958,18 +2056,23 @@ void xtalk() {
   mME41_line_4->Draw("SAME");
   mME42_line_4->Draw("SAME");
   end_line_4->Draw("SAME");
+  legend_4->AddEntry(mME11a_line_4,"ME1"); 
+  legend_4->AddEntry(mME21_line_4,"ME2");
+  legend_4->AddEntry(mME31_line_4,"ME3");
+  legend_4->AddEntry(mME41_line_4,"ME4");
+  legend_4->Draw("SAME");
 
-  //c1->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffXtalk_IntL_rings.pdf");
-  c1->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffXtalk_IntL_rings.png");
+  //c1->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffXtalk_IntL_rings.pdf");
+  c1->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffXtalk_IntL_rings.png");
   
-  //c2->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffXtalk_IntR_rings.pdf");
-  c2->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffXtalk_IntR_rings.png");
+  //c2->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffXtalk_IntR_rings.pdf");
+  c2->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffXtalk_IntR_rings.png");
   
-  //c3->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffXtalk_XTalkL_rings.pdf");
-  c3->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffXtalk_XTalkL_rings.png");
+  //c3->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffXtalk_XTalkL_rings.pdf");
+  c3->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffXtalk_XTalkL_rings.png");
   
-  //c4->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffXtalk_XTalkR_rings.pdf");
-  c4->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/index_vs_diffXtalk_XTalkR_rings.png");
+  //c4->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffXtalk_XTalkR_rings.pdf");
+  c4->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/index_vs_diffXtalk_XTalkR_rings.png");
   
   // diff crosstalk
 
@@ -1986,41 +2089,35 @@ void xtalk() {
 
   c5->cd();
   DiffXtalk->Draw("diffIntL");
-  auto htemp5 = (TH2F*)gPad->GetPrimitive("htemp");
-  htemp5->GetXaxis()->SetLimits(-2.0,10.0);
-
+ 
   c6->cd();
   DiffXtalk->Draw("diffIntR");
-  auto htemp6 = (TH2F*)gPad->GetPrimitive("htemp");
-  htemp6->GetXaxis()->SetLimits(-2.0,10.0);
+  
 
   c7->cd();
   DiffXtalk->Draw("diffXtalkL");
-  auto htemp7 = (TH2F*)gPad->GetPrimitive("htemp");
-  htemp7->GetXaxis()->SetLimits(-2.0,2.0);
+  
 
   c8->cd();
   DiffXtalk->Draw("diffXtalkR");
-  auto htemp8 = (TH2F*)gPad->GetPrimitive("htemp");
-  htemp8->GetXaxis()->SetLimits(-2.0,2.0);
+ 
+  //c5->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffXtalk_IntL.pdf");
+  c5->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffXtalk_IntL.png");
 
-  //c5->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffXtalk_IntL.pdf");
-  c5->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffXtalk_IntL.png");
+  //c6->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffXtalk_IntR.pdf");
+  c6->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffXtalk_IntR.png");
 
-  //c6->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffXtalk_IntR.pdf");
-  c6->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffXtalk_IntR.png");
+  //c7->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffXtalk_XTalkL.pdf");
+  c7->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffXtalk_XTalkL.png");
 
-  //c7->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffXtalk_XTalkL.pdf");
-  c7->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffXtalk_XTalkL.png");
-
-  //c8->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffXtalk_XTalkR.pdf");
-  c8->Print("Figures/CSCCalib_run_10000015_Sep_28_2022/diffXtalk_XTalkR.png");
+  //c8->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffXtalk_XTalkR.pdf");
+  c8->Print("Figures/CSCCalib_run_10000014_Feb_08_2024/diffXtalk_XTalkR.png");
 
 }
 
 void makePlots(){
   xtalk();
-  //peds();
-  //matrix();
-  //gains();
+  peds();
+  matrix();
+  gains();
 }

@@ -94,7 +94,7 @@ echo "found:" $i
 done
 echo "CFEB04: Gains Summary File:            $gainsname      has been produced."; echo " "
 
-
+echo "Copied! Well done"
 
 echo " "
 echo "                  ***************************************************"
@@ -113,7 +113,6 @@ cat readMatrix.cpp | sed -e 's/FileName/'$matrixname'/' > readMatrix_$NOW.cpp; e
 cat readPeds.cpp | sed -e 's/FileName/'$pedsname'/' > readPeds_$NOW.cpp; echo "readPeds_$NOW.cpp"
 cat readXtalk.cpp | sed -e 's/FileName/'$xtalkname'/' > readXtalk_$NOW.cpp; echo "readXtalk_$NOW.cpp"
 cat readGains.cpp | sed -e 's/FileName/'$gainsname'/' > readGains_$NOW.cpp; echo "readGains_$NOW.cpp"; echo " "
-
 
 #######################################################################################
 ###        Run the read[----].cpp files                                              ###

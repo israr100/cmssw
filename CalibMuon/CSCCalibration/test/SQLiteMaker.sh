@@ -1,7 +1,8 @@
 #!/bin/sh
 # This file is used for making all constants in a single SQLite file. That file is for use with the CSC Validation package to test new constants.  
 
-NOW=$(date +"%b_%d_%Y")
+#NOW=$(date +"%b_%d_%Y")
+NOW = "Aug_29_2023"
 echo $NOW
 
 matrixname="matrixSummary_$NOW.dat"

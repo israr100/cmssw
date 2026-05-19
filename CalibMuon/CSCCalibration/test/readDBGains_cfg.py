@@ -13,6 +13,7 @@ process.PoolDBESSource = cms.ESSource("PoolDBESSource",
         tag = cms.string('CSCDBGains_hlt')
     )),
     #read from sqlite_file
+    #connect = cms.string('sqlite_file:DBGains_Aug_21_2023.db'),
     connect=cms.string("frontier://FrontierProd/CMS_CONDITIONS"),
     # read from database
     #string connect="frontier://FrontierDev/CMS_COND_CSC"

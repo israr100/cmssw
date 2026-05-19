@@ -39,7 +39,7 @@ process.PoolDBOutputService = cms.Service("PoolDBOutputService",
     logconnect = cms.untracked.string('sqlite_file:pedestalslog.db'),
     toPut = cms.VPSet(cms.PSet(
         record = cms.string('CSCDBPedestalsRcd'),
-        tag = cms.string('CSCDBPedestals_Testing_Sep_2022')
+        tag = cms.string('CSCDBPedestals_Sep_2023')
     ))
 )
 
