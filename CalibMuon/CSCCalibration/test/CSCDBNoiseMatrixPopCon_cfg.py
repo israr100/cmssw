@@ -39,7 +39,7 @@ process.PoolDBOutputService = cms.Service("PoolDBOutputService",
     logconnect = cms.untracked.string('sqlite_file:matrixlog.db'),
     toPut = cms.VPSet(cms.PSet(
         record = cms.string('CSCDBNoiseMatrixRcd'),
-        tag = cms.string('CSCDBNoiseMatrix_Testing_Sep_2022')
+        tag = cms.string('CSCDBNoiseMatrix_Sep_2023')
     ))
 )
 
